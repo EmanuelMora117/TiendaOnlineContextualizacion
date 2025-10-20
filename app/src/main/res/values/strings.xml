@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TiendaOnline</string>
+    <string name="title_activity_login">loginActivity</string>
+    <string name="title_activity_lista_productos">ListaProductosActivity</string>
+    <string name="title_activity_carrito">CarritoActivity</string>
+    <string name="title_activity_register">RegisterActivity</string>
+</resources>

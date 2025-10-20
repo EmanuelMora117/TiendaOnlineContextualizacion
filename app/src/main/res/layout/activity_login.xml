@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#F5F5F5"
+    android:padding="24dp"
+    tools:context=".LoginActivity">
+
+<ImageView
+    android:id="@+id/logoImage"
+    android:src="@mipmap/ic_launcher"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    android:layout_marginBottom="20dp"/>
+
+<TextView
+    android:id="@+id/titulo"
+    android:text="Iniciar Sesión"
+    android:textSize="26sp"
+    android:textStyle="bold"
+    android:textColor="#333333"
+    android:layout_marginBottom="30dp"
+    android:layout_gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+
+<EditText
+    android:id="@+id/inputUser"
+    android:hint="Usuario"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:backgroundTint="#2196F3"
+    android:drawableStart="@android:drawable/ic_menu_myplaces"
+    android:drawablePadding="10dp"
+    android:padding="10dp"
+    android:layout_marginBottom="16dp"/>
+
+<EditText
+    android:id="@+id/inptPassword"
+    android:hint="Contraseña"
+    android:inputType="textPassword"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:backgroundTint="#2196F3"
+    android:drawableStart="@android:drawable/ic_lock_lock"
+    android:drawablePadding="10dp"
+    android:padding="10dp"
+    android:layout_marginBottom="24dp"/>
+
+<Button
+    android:id="@+id/btnLogin"
+    android:text="Iniciar sesión"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:backgroundTint="#2196F3"
+    android:textColor="#FFFFFF"
+    android:textStyle="bold"
+    android:layout_marginBottom="16dp"/>
+
+<TextView
+    android:id="@+id/linkRegistro"
+    android:text="¿No tienes cuenta? Regístrate aquí"
+    android:textColor="#1565C0"
+    android:textSize="14sp"
+    android:layout_gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+
+</LinearLayout>
+
