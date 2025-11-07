@@ -11,12 +11,16 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.tiendaonline.database.dbUsersOperations
+import com.example.tiendaonline.models.User
 import com.example.tiendaonline.ui.theme.TiendaOnlineTheme
 
 class RegisterActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+
+        val userOperations = dbUsersOperations(this)
 
         val inputUser = findViewById<EditText>(R.id.inputUser)
         val inputEmail = findViewById<EditText>(R.id.inputEmail)
@@ -34,12 +38,16 @@ class RegisterActivity : ComponentActivity() {
                 Toast.makeText(this, "Por favor completa todos los campos", Toast.LENGTH_SHORT)
                     .show()
             } else {
-                Toast.makeText(this, "Registro exitoso de $user", Toast.LENGTH_LONG).show()
-                Users.users.add(User(user, email, password))
-                inputUser.text.clear()
-                inputEmail.text.clear()
-                inptPassword.text.clear()
-                backLogin()
+                val newUser = User(nameUser = user, email = email, password = password)
+                val id = userOperations.insertUser(newUser)
+
+                if (id) {
+                    Toast.makeText(this, "Registro exitoso de $user", Toast.LENGTH_LONG).show()
+                    backLogin()
+                } else {
+                    Toast.makeText(this, "El usuario ya está registrado con ese correo", Toast.LENGTH_SHORT).show()
+                }
+
             }
         }
 

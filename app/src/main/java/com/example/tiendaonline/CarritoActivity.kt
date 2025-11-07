@@ -3,7 +3,6 @@ package com.example.tiendaonline
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import androidx.activity.enableEdgeToEdge
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -14,7 +13,8 @@ import android.widget.TableRow
 import android.widget.TextView
 import android.widget.Button
 import android.widget.ImageView
-
+import android.net.Uri
+import com.example.tiendaonline.database.dbCarritoOperations
 
 class CarritoActivity : ComponentActivity() {
 
@@ -22,6 +22,7 @@ class CarritoActivity : ComponentActivity() {
     private lateinit var tvTotal: TextView
     private lateinit var btnVaciar: Button
     private lateinit var btnVolver: Button
+    private lateinit var dbOpsCarrito: dbCarritoOperations
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,11 +32,11 @@ class CarritoActivity : ComponentActivity() {
         tvTotal = findViewById(R.id.tvTotal)
         btnVaciar = findViewById(R.id.btnVaciar)
         btnVolver = findViewById(R.id.btnVolver)
-
+        dbOpsCarrito = dbCarritoOperations(this)
         mostrarProductos()
 
         btnVaciar.setOnClickListener {
-            Carrito.productos.clear()
+            dbOpsCarrito.deleteAllProductsCarrito()
             mostrarProductos()
         }
 
@@ -44,28 +45,38 @@ class CarritoActivity : ComponentActivity() {
             startActivity(intent)
             finish()
         }
-
-        enableEdgeToEdge()
     }
 
     private fun mostrarProductos() {
+
         tabla.removeAllViews()
         var total = 0.0
 
-        for (producto in Carrito.productos) {
+        //val listaProductos =
+
+        for (producto in dbOpsCarrito.getProductsCarrito()) {
             val fila = TableRow(this).apply {
                 setPadding(8, 8, 8, 8)
             }
 
             val ivImagen = ImageView(this).apply {
-                setImageResource(producto.imagen)
-                layoutParams = TableRow.LayoutParams(150, 150) // tamaño cuadrado
-                adjustViewBounds = true
+                layoutParams = TableRow.LayoutParams(200, 200)
                 scaleType = ImageView.ScaleType.CENTER_CROP
+                if (producto.imagen != null) {
+                    setImageURI(Uri.parse(producto.imagen))
+                } else {
+                    setImageResource(R.drawable.ic_launcher_foreground)
+                }
             }
 
             val tvNombre = TextView(this).apply {
                 text = producto.nombre
+                textSize = 16f
+                setPadding(16, 8, 16, 8)
+            }
+
+            val tvDescripcion = TextView(this).apply {
+                text = producto.descripcion
                 textSize = 16f
                 setPadding(16, 8, 16, 8)
             }
@@ -79,6 +90,7 @@ class CarritoActivity : ComponentActivity() {
 
             fila.addView(ivImagen)
             fila.addView(tvNombre)
+            fila.addView(tvDescripcion)
             fila.addView(tvPrecio)
 
             tabla.addView(fila)

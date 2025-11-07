@@ -12,11 +12,14 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.example.tiendaonline.database.dbUsersOperations
 
 class LoginActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        val userOperations = dbUsersOperations(this)
 
         val inputUser = findViewById<EditText>(R.id.inputUser)
         val inptPassword = findViewById<EditText>(R.id.inptPassword)
@@ -32,10 +35,10 @@ class LoginActivity : ComponentActivity() {
             val user = inputUser.text.toString().trim()
             val password = inptPassword.text.toString().trim()
 
-            val userFound = Users.users.find { it.nameUser == user && it.password == password }
+            val userFound = userOperations.validateUser(user, password)
 
-            if(userFound != null){
-                Toast.makeText(this, "Bienvenido, ${userFound.nameUser}!", Toast.LENGTH_LONG).show()
+            if(userFound){
+                Toast.makeText(this, "Bienvenido, $user!", Toast.LENGTH_LONG).show()
                 val intent = Intent(this, ListaProductosActivity::class.java)
                 startActivity(intent)
             }else {

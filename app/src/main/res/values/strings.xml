@@ -4,4 +4,7 @@
     <string name="title_activity_lista_productos">ListaProductosActivity</string>
     <string name="title_activity_carrito">CarritoActivity</string>
     <string name="title_activity_register">RegisterActivity</string>
+    <string name="title_activity_admin_productos">AdminProductosActivity</string>
+    <string name="title_activity_form_producto">FormProductoActivity</string>
+    <string name="title_activity_mapa">MapaActivity</string>
 </resources>
