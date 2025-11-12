@@ -2,7 +2,6 @@ package com.example.tiendaonline.database
 
 import android.content.ContentValues
 import android.content.Context
-import android.database.Cursor
 import com.example.tiendaonline.models.User
 
 class dbUsersOperations(context: Context) {

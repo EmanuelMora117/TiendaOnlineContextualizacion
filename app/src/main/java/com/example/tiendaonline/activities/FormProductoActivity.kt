@@ -1,4 +1,4 @@
-package com.example.tiendaonline
+package com.example.tiendaonline.activities
 
 import android.net.Uri
 import android.os.Bundle
@@ -15,6 +15,7 @@ import com.example.tiendaonline.ui.theme.TiendaOnlineTheme
 import java.io.File
 import java.io.FileOutputStream
 import android.widget.Button
+import com.example.tiendaonline.R
 
 
 class FormProductoActivity : ComponentActivity() {

@@ -1,4 +1,4 @@
-package com.example.tiendaonline
+package com.example.tiendaonline.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,8 +11,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.tiendaonline.ui.theme.TiendaOnlineTheme
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.tiendaonline.R
 import com.example.tiendaonline.database.dbProductsOperations
 import com.example.tiendaonline.models.Producto
+import com.example.tiendaonline.adapters.ProductsAdapter
 
 class AdminProductosActivity : ComponentActivity() {
     private lateinit var recycler: RecyclerView
@@ -34,11 +36,12 @@ class AdminProductosActivity : ComponentActivity() {
 
         adapter = ProductsAdapter(
             listaProductos,
+            origin = "admin",
             onEdit = { producto ->
-                val intent = Intent(this, FormProductoActivity::class.java)
-                intent.putExtra("producto_id", producto.id)
-                startActivity(intent)
-            },
+                    val intent = Intent(this, FormProductoActivity::class.java)
+                    intent.putExtra("producto_id", producto.id)
+                    startActivity(intent)
+                },
             onDelete = { producto ->
                 dbOps.deleteProducts(producto.id)
                 listaProductos.remove(producto)

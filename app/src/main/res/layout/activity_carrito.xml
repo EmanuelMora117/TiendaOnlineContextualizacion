@@ -5,9 +5,10 @@
     android:padding="12dp"
     android:stretchColumns="1"
     android:shrinkColumns="1"
-    android:background="#FFFFFF">
+    android:background="#F7F7F7">
 
-    <TableRow>
+    <TableRow
+        android:layout_marginTop="32dp">
         <TextView
             android:text="Carrito de Compras"
             android:textSize="22sp"

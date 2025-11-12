@@ -3,8 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    tools:context=".AdminProductosActivity">
+    android:background="#F7F7F7"
+    android:padding="20dp"
+    tools:context=".activities.AdminProductosActivity">
 
     <LinearLayout
         android:orientation="vertical"
@@ -12,35 +13,47 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal">
 
+        <!-- Título -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Agregar Producto"
-            android:textSize="22sp"
+            android:textSize="24sp"
             android:textStyle="bold"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginTop="32dp"
+            android:textColor="#212121"
+            android:layout_marginBottom="20dp" />
 
+        <!-- Imagen -->
         <ImageView
             android:id="@+id/imgPreview"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="220dp"
+            android:layout_height="220dp"
             android:layout_marginBottom="16dp"
+            android:background="@drawable/rounded_gray_bg"
+            android:padding="4dp"
             android:scaleType="centerCrop"
-            android:background="@android:color/darker_gray"
-            android:contentDescription="Vista previa"/>
+            android:elevation="3dp"
+            android:contentDescription="Vista previa" />
 
+        <!-- Botón seleccionar imagen -->
         <Button
             android:id="@+id/btnSeleccionarImagen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Seleccionar Imagen"/>
+            android:text="Seleccionar Imagen"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#1E88E5"
+            android:layout_marginBottom="24dp" />
 
+        <!-- Campos de texto -->
         <EditText
             android:id="@+id/inputNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nombre del producto"
-            android:layout_marginTop="20dp"/>
+            android:padding="12dp"
+            android:layout_marginBottom="14dp" />
 
         <EditText
             android:id="@+id/inputPrecio"
@@ -48,23 +61,24 @@
             android:layout_height="wrap_content"
             android:hint="Precio"
             android:inputType="numberDecimal"
-            android:layout_marginTop="12dp"/>
+            android:padding="12dp"
+            android:layout_marginBottom="14dp" />
 
         <EditText
             android:id="@+id/inputDescripcion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Descripción"
-            android:layout_marginTop="12dp"/>
+            android:padding="12dp"
+            android:layout_marginBottom="24dp" />
 
+        <!-- Botones -->
         <LinearLayout
             android:id="@+id/layoutBotones"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:gravity="center"
-            android:orientation="horizontal"
-            android:padding="10dp">
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btnCancelar"
@@ -72,9 +86,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Cancelar"
-                android:backgroundTint="@color/gray"
-                android:textColor="@android:color/white"
-                android:layout_marginEnd="8dp"/>
+                android:backgroundTint="#9E9E9E"
+                android:textColor="#FFFFFF"
+                android:layout_marginEnd="8dp" />
 
             <Button
                 android:id="@+id/btnGuardarProducto"
@@ -82,10 +96,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Guardar"
-                android:backgroundTint="@color/purple_500"
-                android:textColor="@android:color/white"
-                android:layout_marginStart="8dp"/>
-
+                android:backgroundTint="#4CAF50"
+                android:textColor="#FFFFFF"
+                android:layout_marginStart="8dp" />
         </LinearLayout>
+
     </LinearLayout>
 </ScrollView>

@@ -6,9 +6,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="#F5F5F5"
+    android:background="#F7F7F7"
     android:padding="24dp"
-    tools:context=".LoginActivity">
+    tools:context=".activities.LoginActivity">
 
 <ImageView
     android:id="@+id/logoImage"
@@ -19,7 +19,7 @@
 
 <TextView
     android:id="@+id/titulo"
-    android:text="Iniciar Sesión"
+    android:text="Iniciar Sesión en TiendaOnline"
     android:textSize="26sp"
     android:textStyle="bold"
     android:textColor="#333333"

@@ -1,4 +1,4 @@
-package com.example.tiendaonline
+package com.example.tiendaonline.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -14,6 +14,8 @@ import android.widget.TextView
 import android.widget.Button
 import android.widget.ImageView
 import android.net.Uri
+import android.view.Gravity
+import com.example.tiendaonline.R
 import com.example.tiendaonline.database.dbCarritoOperations
 
 class CarritoActivity : ComponentActivity() {
@@ -85,7 +87,7 @@ class CarritoActivity : ComponentActivity() {
                 text = "$${producto.precio.toInt()}"
                 textSize = 16f
                 setPadding(16, 8, 16, 8)
-                gravity = android.view.Gravity.END
+                gravity = Gravity.END
             }
 
             fila.addView(ivImagen)

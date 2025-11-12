@@ -1,4 +1,4 @@
-package com.example.tiendaonline
+package com.example.tiendaonline.activities
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

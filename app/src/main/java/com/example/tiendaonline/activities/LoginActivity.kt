@@ -1,4 +1,4 @@
-package com.example.tiendaonline
+package com.example.tiendaonline.activities
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -12,6 +12,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.example.tiendaonline.R
 import com.example.tiendaonline.database.dbUsersOperations
 
 class LoginActivity : ComponentActivity() {

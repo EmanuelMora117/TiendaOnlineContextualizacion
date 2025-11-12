@@ -44,32 +44,6 @@ class dbCarritoOperations(context: Context) {
         return lista
     }
 
-    fun getProductByIdCarrito(id: Int): Producto? {
-        val db = dbHelper.readableDatabase
-        val cursor = db.rawQuery("SELECT * FROM carrito WHERE id = ?", arrayOf(id.toString()))
-        var producto: Producto? = null
-        if (cursor.moveToFirst()) {
-            producto = Producto(
-                id = cursor.getInt(cursor.getColumnIndexOrThrow("id")),
-                nombre = cursor.getString(cursor.getColumnIndexOrThrow("nombre")),
-                precio = cursor.getDouble(cursor.getColumnIndexOrThrow("precio")),
-                descripcion = cursor.getString(cursor.getColumnIndexOrThrow("descripcion")),
-                imagen = cursor.getString(cursor.getColumnIndexOrThrow("imagenRuta"))
-            )
-        }
-        cursor.close()
-        db.close()
-        return producto
-    }
-
-
-    fun deleteProductsCarrito(id: Int): Int {
-        val db = dbHelper.writableDatabase
-        val filas = db.delete("carrito", "id=?", arrayOf(id.toString()))
-        db.close()
-        return filas
-    }
-
 
     fun deleteAllProductsCarrito(){
         val db = dbHelper.writableDatabase
