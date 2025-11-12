@@ -54,8 +54,6 @@ class CarritoActivity : ComponentActivity() {
         tabla.removeAllViews()
         var total = 0.0
 
-        //val listaProductos =
-
         for (producto in dbOpsCarrito.getProductsCarrito()) {
             val fila = TableRow(this).apply {
                 setPadding(8, 8, 8, 8)
